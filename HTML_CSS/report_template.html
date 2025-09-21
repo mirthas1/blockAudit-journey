@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audit Report — Project Name</title>
+  <style>
+    /* ====== Variables & base ====== */
+    :root{
+      --bg:#f7fafc; --card:#ffffff; --muted:#6b7280; --accent:#2563eb;
+      --high:#ef4444; --medium:#f59e0b; --low:#10b981; --info:#3b82f6;
+      --maxw:900px; --radius:10px; --pad:18px;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg); margin:0; color:#0f172a}
+    .container{max-width:var(--maxw);margin:28px auto;padding:12px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.06);padding:var(--pad);}
+
+    /* ====== Header ====== */
+    header.report-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    h1{font-size:18px;margin:0}
+    .meta{color:var(--muted);font-size:13px}
+
+    /* ====== Summary & badges ====== */
+    .summary{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .summary > div{flex:1;min-width:180px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px}
+    .sev-high{background:rgba(239,68,68,0.12);color:var(--high);border:1px solid rgba(239,68,68,0.12)}
+    .sev-medium{background:rgba(245,158,11,0.08);color:var(--medium)}
+    .sev-low{background:rgba(16,185,129,0.08);color:var(--low)}
+    .sev-info{background:rgba(59,130,246,0.08);color:var(--info)}
+
+    /* ====== Findings table ====== */
+    table{width:100%;border-collapse:collapse;margin-top:14px}
+    thead th{text-align:left;padding:12px 8px;font-size:13px;color:var(--muted);border-bottom:1px solid #eef2f7}
+    tbody td{padding:12px 8px;border-bottom:1px dashed #eef2f7;vertical-align:top}
+    .finding-title{font-weight:700}
+    .finding-details{color:#374151;font-size:13px;margin-top:6px}
+
+    /* severity pill in table */
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+    .pill .dot{width:10px;height:10px;border-radius:50%}
+    .pill.high{background:rgba(239,68,68,0.08);color:var(--high)}
+    .pill.medium{background:rgba(245,158,11,0.07);color:var(--medium)}
+    .pill.low{background:rgba(16,185,129,0.06);color:var(--low)}
+    .pill.info{background:rgba(59,130,246,0.06);color:var(--info)}
+
+    /* ====== Code blocks ====== */
+    pre{background:#0b1220;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;font-size:13px}
+    .code-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .muted{color:var(--muted)}
+
+    /* ====== actions ====== */
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    button{background:var(--accent);color:white;border:0;padding:8px 12px;border-radius:8px;font-weight:600;cursor:pointer}
+    button.secondary{background:#eef2ff;color:var(--accent);border:1px solid rgba(37,99,235,0.08)}
+
+    /* ====== footer ====== */
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* ====== responsive ====== */
+    @media (max-width:640px){
+      header.report-header{flex-direction:column;align-items:flex-start}
+      .brand{gap:10px}
+    }
+
+    /* ====== print ====== */
+    @media print{
+      body,html{background:white}
+      .container{max-width:720px;margin:0}
+      .card{box-shadow:none;border-radius:6px}
+      button,.actions{display:none}
+      pre{color:#000;background:#f6f7f8}
+    }
+
+    /* ====== small helpers ====== */
+    .muted-2{color:#475569;font-size:13px}
+    details{margin-top:6px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header class="report-header">
+        <div class="brand">
+          <div class="logo">AR</div>
+          <div>
+            <h1>Blockchain Audit — Project Name</h1>
+            <div class="meta">Client: <strong>Client Name</strong> • Date: <span id="report-date">2025-09-20</span> • Version: v1.0</div>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="print-btn">Print / Save PDF</button>
+          <button class="secondary" id="toggle-theme">Toggle Theme</button>
+        </div>
+      </header>
+
+      <section class="summary card" style="margin-top:14px;">
+        <div>
+          <div class="muted">Executive summary</div>
+          <div class="muted-2">A short, non-technical summary of the audit findings and the highest risk items. Keep this to 3–5 sentences for stakeholders.</div>
+        </div>
+        <div>
+          <div class="muted">Counts</div>
+          <div style="margin-top:6px">
+            <span class="badge sev-high">High: 2</span>
+            <span class="badge sev-medium" style="margin-left:6px">Medium: 4</span>
+            <span class="badge sev-low" style="margin-left:6px">Low: 6</span>
+            <span class="badge sev-info" style="margin-left:6px">Info: 3</span>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:18px">
+        <h3 style="margin:0 0 8px 0">Findings</h3>
+        <table>
+          <thead>
+            <tr><th style="width:120px">Severity</th><th>Title & details</th><th style="width:120px">Affected</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="pill high"><span class="dot" style="background:var(--high)"></span> HIGH</span>
+              </td>
+              <td>
+                <div class="finding-title">Reentrancy in Token.claim()</div>
+                <div class="finding-details">The claim() flow calls external contracts before state update, enabling reentrancy. See reproduction & suggested fix below.</div>
+                <details>
+                  <summary style="cursor:pointer;margin-top:8px">Reproduction (click to open)</summary>
+                  <div style="margin-top:8px">
+                    <div class="code-meta"><div class="muted">PoC snippet</div><button class="secondary" onclick="copyCode('poc1')">Copy</button></div>
+                    <pre id="poc1">// simplified PoC
+contract Attacker { 
+  function attack(address target) external { /* ... */ }
+}
+</pre>
+                    <div style="margin-top:8px" class="muted-2">Suggested fix: use checks-effects-interactions, add reentrancy guard, and write unit tests that simulate reentrant calls.</div>
+                  </div>
+                </details>
+              </td>
+              <td>Token.sol v1.2</td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="pill medium"><span class="dot" style="background:var(--medium)"></span> MEDIUM</span>
+              </td>
+              <td>
+                <div class="finding-title">Unchecked ERC20 return value</div>
+                <div class="finding-details">External ERC20 transfers are assumed to succeed without checking return values; this can break with non-standard tokens.</div>
+              </td>
+              <td>Bridge.sol</td>
+            </tr>
+
+            <!-- example low/info rows -->
+            <tr>
+              <td><span class="pill low"><span class="dot" style="background:var(--low)"></span> LOW</span></td>
+              <td><div class="finding-title">Gas optimisation: remove redundant storage read</div><div class="finding-details">Minor gas saving by caching storage to memory in loop X.</div></td>
+              <td>Lib.sol</td>
+            </tr>
+
+            <tr>
+              <td><span class="pill info"><span class="dot" style="background:var(--info)"></span> INFO</span></td>
+              <td><div class="finding-title">Readme missing example</div><div class="finding-details">Project README lacks CLI usage example for tests/deploy commands.</div></td>
+              <td>README.md</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </section>
+
+      <section style="margin-top:18px">
+        <h3 style="margin:0 0 8px 0">Recommendations & Remediation Plan</h3>
+        <ol style="margin-top:8px;padding-left:18px">
+          <li>Fix critical reentrancy and add unit & fuzz tests for claim flow.</li>
+          <li>Audit all external token transfers and wrap with safeTransfer wrappers.</li>
+          <li>Introduce a formal review step for privileged functions (timelocks, multisig).</li>
+        </ol>
+      </section>
+
+      <section style="margin-top:18px">
+        <h3 style="margin:0 0 8px 0">Appendix (Test cases & PoC)</h3>
+        <div class="muted-2">Include the reproduction steps, test commands, environment, and hashes for easy verification.</div>
+        <div style="margin-top:12px">
+          <div class="code-meta"><div class="muted">Unit test example</div><button class="secondary" onclick="copyCode('test1')">Copy</button></div>
+          <pre id="test1">// npx hardhat test --grep "claim"
+describe('Claim flow', function() { /* ... */ })
+</pre>
+        </div>
+      </section>
+
+      <footer>
+        <div class="muted">Prepared by: git uid-Mirthas1 • Contact: nm.mirthas1@gmail.com</div>
+        <div style="margin-top:6px" class="muted">Notes: This template is a starter. .</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // small utilities
+    document.getElementById('print-btn').addEventListener('click',()=>window.print())
+    document.getElementById('report-date').textContent = new Date().toLocaleDateString()
+
+    function copyCode(id){
+      const el = document.getElementById(id)
+      if(!el) return
+      navigator.clipboard.writeText(el.innerText).then(()=>{
+        alert('Copied to clipboard')
+      }).catch(()=>alert('Copy failed'))
+    }
+
+    // theme toggle (very small)
+    const btn = document.getElementById('toggle-theme')
+    let dark = false
+    btn.addEventListener('click',()=>{
+      dark = !dark
+      if(dark){
+        document.documentElement.style.setProperty('--bg','#0b1220')
+        document.documentElement.style.setProperty('--card','#071129')
+        document.documentElement.style.setProperty('--muted','#9aa6b2')
+        document.documentElement.style.setProperty('--accent','#7c3aed')
+      } else {
+        document.documentElement.style.removeProperty('--bg')
+        document.documentElement.style.removeProperty('--card')
+        document.documentElement.style.removeProperty('--muted')
+        document.documentElement.style.removeProperty('--accent')
+      }
+    })
+  </script>
+</body>
+</html>
