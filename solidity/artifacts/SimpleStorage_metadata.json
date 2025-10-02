@@ -6,69 +6,8 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_favoriteNumber",
-						"type": "uint256"
-					}
-				],
-				"name": "addPerson",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "listOfPeople",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "favoriteNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"name": "nameToFavoriteNumber",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
-				"name": "retrieve",
+				"name": "get",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -83,11 +22,11 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_favoriteNumber",
+						"name": "x",
 						"type": "uint256"
 					}
 				],
-				"name": "store",
+				"name": "set",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -106,7 +45,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"simplestorage.sol": "SimpleStorage"
+			"solidity intro.sol": "SimpleStorage"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -120,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"simplestorage.sol": {
-			"keccak256": "0x833c5fde6628424d4ea86f0da10157db28e7639bd045f251b694964ab3c03a28",
-			"license": "MIT",
+		"solidity intro.sol": {
+			"keccak256": "0xc63833e115f1d80f54bb839d24abe7c1524a3184111967e22c741eb3a4d2e1f6",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://a303d7cafed7a4d167795c7e2ee7fad6f2b49b4146dc6b243a5e4bf5ab8c8811",
-				"dweb:/ipfs/QmRsDeZZCNB5XxvKhiDqj3TjLwoxbq4HiP8Q7w9KEFTTfA"
+				"bzz-raw://99d142a6adfe3b9760f01d87d5dea4982e109d096ae43ca4e9ea01c53d87d480",
+				"dweb:/ipfs/QmRm9hpxpPttvNVbi7tmiQyMbihMEjyRnvex71mucxhNkp"
 			]
 		}
 	},
