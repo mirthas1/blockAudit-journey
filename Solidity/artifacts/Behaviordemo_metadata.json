@@ -18,7 +18,7 @@
 						"type": "int256"
 					}
 				],
-				"name": "Add",
+				"name": "add",
 				"outputs": [
 					{
 						"internalType": "int256",
@@ -30,19 +30,8 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "int256",
-						"name": "a",
-						"type": "int256"
-					},
-					{
-						"internalType": "int256",
-						"name": "b",
-						"type": "int256"
-					}
-				],
-				"name": "Divide",
+				"inputs": [],
+				"name": "getnumber",
 				"outputs": [
 					{
 						"internalType": "int256",
@@ -50,55 +39,33 @@
 						"type": "int256"
 					}
 				],
-				"stateMutability": "pure",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "number",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
 						"internalType": "int256",
-						"name": "a",
-						"type": "int256"
-					},
-					{
-						"internalType": "int256",
-						"name": "b",
+						"name": "_num",
 						"type": "int256"
 					}
 				],
-				"name": "Multiply",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "int256",
-						"name": "a",
-						"type": "int256"
-					},
-					{
-						"internalType": "int256",
-						"name": "b",
-						"type": "int256"
-					}
-				],
-				"name": "Subtract",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "pure",
+				"name": "setnumber",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -115,7 +82,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"tryit/calculator.sol": "calculator"
+			"tryit/function.sol": "Behaviordemo"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -129,12 +96,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"tryit/calculator.sol": {
-			"keccak256": "0x83f08c575ffa3515f83747b6b65aa7c66f64cc7a3813c805a42dacb463d88205",
+		"tryit/function.sol": {
+			"keccak256": "0xaeeacceddb220c88dea4514aa3cd57d926e0dd5fcb835dd0c90d8b92eb83bfae",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e2154c49b2c8ba57e06ee0adbe29cf6f6fb3f77b426ebe56abcd5c535ac15a19",
-				"dweb:/ipfs/QmVLL4CbfPj2oJdhm1WCNGUdwFeQw5uQ9VgsCyqZLsqUBd"
+				"bzz-raw://a74da2aba8b0b015cdc101c3b88950dd1e36c15fe0f593799d307063ca6f5cad",
+				"dweb:/ipfs/Qmbx9qm2RJqyvV3AhTgo5pcrG6dTnGiBNtGiJoK269woam"
 			]
 		}
 	},

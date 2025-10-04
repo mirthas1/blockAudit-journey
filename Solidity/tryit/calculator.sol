@@ -3,20 +3,20 @@ pragma solidity ^0.8.0 < 0.9.0;
 
 contract calculator {
     //Add two numbers
-    function Add(uint a, uint b) public pure returns (uint) {
+    function Add(int a, int b) public pure returns (int) {
         return a + b;
     }
     
     //Subtract two numbers
-    function Subtract(uint a, uint b) public pure returns (uint) {
+    function Subtract(int a, int b) public pure returns (int) {
         return a-b;
     }
     //Multiply two numbers
-    function Multiply(uint a, uint b) public pure returns (uint) {
+    function Multiply(int a, int b) public pure returns (int) {
         return a*b;
     }
     //Divide two numbers
-    function Divide(uint a ,uint b) public pure returns (uint) {
+    function Divide(int a ,int b) public pure returns (int) {
         return a/b;
     }
 }
