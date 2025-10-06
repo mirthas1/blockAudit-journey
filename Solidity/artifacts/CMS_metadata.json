@@ -1,0 +1,91 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "newtoy",
+						"type": "string"
+					}
+				],
+				"name": "Calldta",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ToyInbox",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "toyname",
+						"type": "string"
+					}
+				],
+				"name": "cheapway",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tryit/CalldataMemoryStorage.sol": "CMS"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tryit/CalldataMemoryStorage.sol": {
+			"keccak256": "0x5a8df8f48b74c78381902a06e364feb3a9002762c7385014afb9a878167f2590",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e2a45cd11a0c4ce9cd7befdb9faab4a766433aa322f7c9b6084693cbea4c5d85",
+				"dweb:/ipfs/QmTk2rff2PcSZcHvW7vbUcTAwxhLkryBTZmEk24gCpsnaf"
+			]
+		}
+	},
+	"version": 1
+}
