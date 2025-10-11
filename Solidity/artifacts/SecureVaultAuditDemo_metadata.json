@@ -338,7 +338,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"projects/ethertransfergpt.sol": "SecureVaultAuditDemo"
+			"projects/EthertransfersSecPetterns.sol": "SecureVaultAuditDemo"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -352,7 +352,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"projects/ethertransfergpt.sol": {
+		"projects/EthertransfersSecPetterns.sol": {
 			"keccak256": "0xd7ab8f038b740f663b6fd660e343696eab3060d397e088a1c473c54b7b025c03",
 			"license": "MIT",
 			"urls": [
