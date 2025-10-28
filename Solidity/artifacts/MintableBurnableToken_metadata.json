@@ -28,13 +28,8 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "address",
-						"name": "_feeCollector",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "_transferFee",
+						"name": "_maxSupply",
 						"type": "uint256"
 					}
 				],
@@ -43,12 +38,27 @@
 			},
 			{
 				"inputs": [],
+				"name": "ExceedsMaxSupply",
+				"type": "error"
+			},
+			{
+				"inputs": [],
 				"name": "InsufficientBalance",
 				"type": "error"
 			},
 			{
 				"inputs": [],
-				"name": "InvalidFee",
+				"name": "NotBurner",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotMinter",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotOwner",
 				"type": "error"
 			},
 			{
@@ -93,11 +103,68 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "feeAmount",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
-				"name": "FeeCollected",
+				"name": "Burn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"name": "BurnerUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Mint",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"name": "MinterUpdated",
 				"type": "event"
 			},
 			{
@@ -129,7 +196,33 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "owner",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "addBurner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "addMinter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner1",
 						"type": "address"
 					},
 					{
@@ -193,6 +286,56 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burnFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "burners",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -207,12 +350,49 @@
 			},
 			{
 				"inputs": [],
-				"name": "feeCollector",
+				"name": "maxSupply",
 				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"name": "minters",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -229,6 +409,45 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "removeBurner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "removeMinter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -282,19 +501,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "transferFee",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -326,25 +532,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "newFee",
-						"type": "uint256"
-					}
-				],
-				"name": "updateFee",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
-						"name": "newCollector",
+						"name": "newOwner",
 						"type": "address"
 					}
 				],
-				"name": "updateFeeCollector",
+				"name": "transferOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -363,7 +556,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Tokens/feetoken.sol": "FeeToken"
+			"Tokens/MintableBurnable.sol": "MintableBurnableToken"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -377,12 +570,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Tokens/feetoken.sol": {
-			"keccak256": "0xa19c6e6eb092414bcd26f33426ca5947b2aa42fea5d61e218e5d22d1420cfcec",
+		"Tokens/MintableBurnable.sol": {
+			"keccak256": "0x1521c2f8ce9535068aab34207d4a674dd612a46d0678c3077faf9f83f6116b95",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b81bb253575709664f62bd0c16d6d4600be13e71669df38a14d2af4fef068779",
-				"dweb:/ipfs/QmWbfVjC7VEiAZvZ2VG76Aj95MLs3nc6gTfKDLroJVDaKM"
+				"bzz-raw://25cdddd23819bb33d2a7a042392a8e80fca25379001065a4a2d9d4e1cc2567a3",
+				"dweb:/ipfs/QmPPshbhcpic8AMgjTyXtoFJydnix9gtacQkxH21xsQfbd"
 			]
 		}
 	},
