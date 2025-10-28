@@ -328,7 +328,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"tryit/ecr20.sol": "myfirstToken"
+			"Tokens/ecr20.sol": "myfirstToken"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -342,7 +342,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"tryit/ecr20.sol": {
+		"Tokens/ecr20.sol": {
 			"keccak256": "0x99b7975a9efdbe71299c06b6ea1c5db4121f9966e9a64cf00d3aa78085907741",
 			"license": "MIT",
 			"urls": [
