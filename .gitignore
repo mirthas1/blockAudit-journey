@@ -138,7 +138,14 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-
-foundry-mastery/
+foundry/ 
+foundry/.github
+foundry/lib
+foundry/script
+foundry/.gitignore
+foundry/.gitmodules
+foundry/foundry.lock
+foundry/foundry.toml
+foundry/README.md 
 
 
