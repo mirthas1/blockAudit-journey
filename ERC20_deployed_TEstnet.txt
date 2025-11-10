@@ -1,0 +1,13 @@
+✅ Contract Deployment Confirmation
+
+Network: Sepolia Testnet  
+Contract Name: mirthas1ERC20_1 (ERC20_1) 
+Contract Address:0x0D88bE69E9d26fCA9dc0192dE897dC3c1516Ed24  
+Deployed By: 0xF1Ed1F88a182bF2DD16d9179bd0f7cB7c1CF1D6E  
+Date: 10-11-2025
+Transaction Hash: 0x330bf283435d7cbd561541d1fe61116e30b38b12697b68eb6bcdf2f4a33f9cce  
+
+Notes:
+- Successfully deployed the ERC20 token to the Sepolia Testnet.
+- Verified the contract on Etherscan (if applicable).
+- Initial supply and ownership configured as intended.
