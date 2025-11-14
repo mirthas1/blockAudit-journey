@@ -1,0 +1,44 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ERC-721/ERC-721_I.sol": "erc721"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ERC-721/ERC-721_I.sol": {
+			"keccak256": "0xe61342bf3f0714df9ab815c0e0031e44ba7fd489c0220a8ef80d3ee3f59d012c",
+			"urls": [
+				"bzz-raw://c2718d5a9de547921024bff0c6e6aa6d53eba5eb116860284e5540c2944d1f26",
+				"dweb:/ipfs/Qmb3qM8CCqnWWsJyX7RTypNe5LdJmEr135f5tUJH4jRKqX"
+			]
+		}
+	},
+	"version": 1
+}
