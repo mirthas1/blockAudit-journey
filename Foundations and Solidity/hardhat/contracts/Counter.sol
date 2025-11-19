@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.28;
 
 contract Counter {
@@ -7,7 +8,7 @@ contract Counter {
   event Increment(uint by);
 
   function inc() public {
-    x++;
+    x += 2; // 🐞 bug!
     emit Increment(1);
   }
 
@@ -17,3 +18,4 @@ contract Counter {
     emit Increment(by);
   }
 }
+
