@@ -8,7 +8,7 @@ contract Counter {
   event Increment(uint by);
 
   function inc() public {
-    x += 2; // 🐞 bug!
+    x += 1; 
     emit Increment(1);
   }
 
