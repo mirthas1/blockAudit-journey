@@ -14,13 +14,13 @@ contract TimeTest is Test {
     }
 
 
-    function testFailBeforeAuctionStartTime() public {
-        vm.expectRevert();
+     function test_BidBeforeAuctionStartTime_ShouldRevert() public {
+        vm.expectRevert("can not bid");
         auction.bid();
     }
 
     function testBid() public {
-        vm.warp(startAt + 1 days);
+        vm.warp(auction.startAt());
         auction.bid();
     }
 
@@ -43,7 +43,6 @@ contract TimeTest is Test {
 
 
     function testBlockNumber()  public {
-        uint b = block.number;
         vm.roll(999);
         assertEq(block.number, 999);
     }
