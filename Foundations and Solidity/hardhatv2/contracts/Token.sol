@@ -1,28 +1,27 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
-pragma solidity ^0.8.30;
-contract Tolen {
-    string public name="MyToken";
-    string public symbol="MT";
-    uint256 public totalSupply=100000;
+pragma solidity 0.8.28;
+
+contract Token {
+    string public name;
+    string public symbol;
+    uint256 public totalsupply=1000000;
     address public owner;
 
-    mapping(address => uint256) public balances;
-    event Transfer(address indexed from,address indexed to, uint256 amount);
+    mapping (address => uint256) balances;
+    event Transfer(address indexed sender,address indexed reciever,uint256 amount);
 
-    constructor() {
-    balances[msg.sender] = totalSupply;
-    owner=msg.sender;    
+    function transfer(address to,uint256 amount) external {
+        require(balances[msg.sender] > amount,"not enaught balances");
+        balances[msg.sender] -= amount;
+        balances[to] += amount;
+
+        emit Transfer(msg.sender, to, amount);
     }
 
-    function Tranferof(address to, uint256 value)  returns (bool) {
-        require(balances[msg.sender] > value,"Insufficiant Tokens");
-        balances[msg.sender] -= value;
-        balances[to] += value;
-        emit Transfer(msg.sender,to,value);
-        return true;
+    function balanceof() external view returns(uint256) {
+        return balances[msg.sender];
+
     }
 
-    function balances(address account) public view  returns (uint256) {
-        return balances[account];
-    }
+
 }
