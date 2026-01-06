@@ -9,5 +9,5 @@ Transaction Hash: 0x330bf283435d7cbd561541d1fe61116e30b38b12697b68eb6bcdf2f4a33f
 
 Notes:
 - Successfully deployed the ERC20 token to the Sepolia Testnet.
-- Verified the contract on Etherscan (if applicable).
+- Verified the contract on Etherscan.
 - Initial supply and ownership configured as intended.
