@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_target",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "flip",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Security fundamentals and challenges/Ethernaut/coinflip/coinflip.sol": "Hack"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Security fundamentals and challenges/Ethernaut/coinflip/coinflip.sol": {
+			"keccak256": "0x16a644a1e73b259140076bb850903994fc42a6f6e3788f5afb7b7600a3995538",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://75cbf576e8aff71940418c676ccffc0bb44c2004ce8931ae3776b8c63d7a23dc",
+				"dweb:/ipfs/QmT3aa2gSo6uwniKrvDD3tsSdVCi9sepgVnihHUb9DzZru"
+			]
+		}
+	},
+	"version": 1
+}
