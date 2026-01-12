@@ -11,6 +11,4 @@ def store(new_number: uint256):
 @view
 def retreve() -> uint256:
     return self.my_favourite_number
-    
 
-    
