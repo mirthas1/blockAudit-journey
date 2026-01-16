@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-91c068328068f9ca64c94f239414fb0b1a4e69f8",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/rocket.sol": "project/contracts/rocket.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/rocket.sol": {
+        "content": "// SPDX-License-Identifier: SEE LICENSE IN LICENSE\r\npragma solidity ^0.8.0;\r\n\r\ncontract rocket {\r\n    string public name;\r\n    string public status;\r\n\r\n    function setname (string memory _name) public  {\r\n           name = _name;\r\n           status = \"ignition\";\r\n    }\r\n\r\n    function launch() public  {\r\n        status = \"lift-coff\";\r\n    } \r\n}"
+      }
+    }
+  }
+}

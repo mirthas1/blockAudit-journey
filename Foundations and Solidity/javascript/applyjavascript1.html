@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Changer Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .explanation {
+            margin-top: 30px;
+            text-align: left;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="h21">HEllo World</h2>
+        <button onclick="change()">Change Text</button>
+        
+        <div class="explanation">
+            <h3>What was fixed in the code:</h3>
+            <ul>
+                <li>The function <code>change()</code> is now properly closed with a closing brace</li>
+                <li>The script tag is correctly placed outside the function</li>
+                <li>The button element now properly contains the text "Change Text"</li>
+                <li>Added proper HTML structure with doctype, html, head and body tags</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Get the element by its correct ID
+        var h21 = document.getElementById('h21');
+        console.log(h21.textContent); // Log initial text content
+        
+        // Define the change function with proper syntax
+        function change() {
+            h21.textContent = "bye bye World";
+            console.log("Text changed to: " + h21.textContent);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "consecutiveWins",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_guess",
+						"type": "bool"
+					}
+				],
+				"name": "flip",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Security fundamentals and challenges/Ethernaut/coinflip/findpettern.sol": "findpettern"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Security fundamentals and challenges/Ethernaut/coinflip/findpettern.sol": {
+			"keccak256": "0x4de1ae295b695c2a2abf6d530d9f6521b74c97e452343b7f94966c0eab389feb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1520852c705f7f1e50599297a060428621452b8263e5bd2c29c67ec0f25c7e38",
+				"dweb:/ipfs/QmdnXRWjAdpET8CzSavbW2RcLTVv2zMKK1RZx8wYEvf3yJ"
+			]
+		}
+	},
+	"version": 1
+}
