@@ -1,0 +1,156 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "sent",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "required",
+						"type": "uint256"
+					}
+				],
+				"name": "InsufficientPayment",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "VillaAlreadyBooked",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "renter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "VillaBooked",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "MIN_PRICE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bookVilla",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currentVillaStatus",
+				"outputs": [
+					{
+						"internalType": "enum HolidayVillaBasic.VillaStatus",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isBooked",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"title": "HolidayVilla — Basic booking",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"isBooked()": {
+					"notice": "Read-only helper that returns true if booked"
+				}
+			},
+			"notice": "Minimal fixed version: pay exactly minPrice (or more) to book if available",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tryit/HolidaVilla.sol": "HolidayVillaBasic"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tryit/HolidaVilla.sol": {
+			"keccak256": "0xcb5845a215d8149a6a86ad0a28d2c9d343dbda9eb73d91376e29214d945cd3a8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ae399a9f2f85cb788b47301bb1462af3183969114bc026267e842e3460574efa",
+				"dweb:/ipfs/QmWZQZBvz4MzsZuiACzdPyRFjHM5TVUsbBiP7fKcZTSVF8"
+			]
+		}
+	},
+	"version": 1
+}

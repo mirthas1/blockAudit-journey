@@ -1,0 +1,2 @@
+completed ethernaut fallback (level 1)
+Transcation Hash : 0x3c53321495ca4ac3b480f784301df5c361a1318d643a484fe624db8ec24e9df0
