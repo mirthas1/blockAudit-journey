@@ -160,4 +160,9 @@ Foundations and Solidity\Solidity\Solidity Documentation\out
 Foundations and Solidity\Solidity\Solidity Documentation
 Foundations and Solidity\
 Solidity\Solidity Documentation
-Solidity Documentry/
+Solidity Documentry/foundry.toml
+Solidity Documentry/foundry.lock
+Solidity Documentry/.gitignore
+Solidity Documentry/.gitmodules
+Solidity Documentry/.github
+Solidity Documentry/lib
