@@ -1,3 +1,0 @@
-done coinflip 
-Transaction Hash:
-0x45f94466d809c1a95c3929dadf7c78ffc5072c714bd3f74c43e7ad5562d5728c
