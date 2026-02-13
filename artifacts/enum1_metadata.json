@@ -1,0 +1,105 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getChoice",
+				"outputs": [
+					{
+						"internalType": "enum enum1.ActionChoices",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getdefaultchoice",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getlargestvalue",
+				"outputs": [
+					{
+						"internalType": "enum enum1.ActionChoices",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getlowestvalue",
+				"outputs": [
+					{
+						"internalType": "enum enum1.ActionChoices",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "setgostraight",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Foundations and Solidity/Solidity/tryit/enums.sol": "enum1"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Foundations and Solidity/Solidity/tryit/enums.sol": {
+			"keccak256": "0xdf3eff71a3e5168662018934f9a973587493829149a294f454830e4f1317e1dc",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://4151d03c8ac4f1c50b8fdcc122a3708a7d2f91c6b0bc6da62a24c0cdb79e2029",
+				"dweb:/ipfs/QmWzhsJuuqPqFCQU2tegAByzKvt1pNfc4qtKj6k6xM4GH8"
+			]
+		}
+	},
+	"version": 1
+}
