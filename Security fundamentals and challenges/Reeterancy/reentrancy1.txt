@@ -1,0 +1,94 @@
+            // VULNERABLE CODE 
+function withdraw() external {
+    uint amount = balances[msg.sender];
+    require(amount > 0, "Insufficient balance");
+
+            // VULNERABILITY (Ether is sent BEFORE updating the balance)
+    (bool success, ) = msg.sender.call{value: amount}("");
+    require(success, "Transfer failed");
+
+            // State update happens AFTER the external call
+    balances[msg.sender] = 0;
+}
+there are three types of reentrancy attacks happens
+
+1. single-function reentrancy:
+    The classic form described above, where the attacker calls the function repeatedly
+
+2. cross-function reentrancy:
+    An attacker might not be able to re-enter the same function, but they could re-enter a different function within the same contract that shares state.
+    If that second function also hasn't had its state updated, the attack can still succeed.
+
+3. read-only reentrancy (manipulated view function) :
+    This is a more subtle and advanced attack. It doesn't target a state-changing function like withdraw.
+    Instead, the attacker manipulates a view function that is used by a second, separate contract (the victim).
+    During the external call of the first contract's withdrawal, the attacker calls the victim contract's deposit function.
+    The victim contract queries the first contract's view function (like getCurrentPrice), which,
+    because the first contract's state is still inconsistent, returns a manipulated value.
+    This allows the attacker to deposit at an artificially favorable price, stealing value from the victim contract.
+
+
+How to prevent from the reentrancy attacks 
+    there are several ways to prevent from reentracy attacks
+        1.Checks-Effects-Interaction Pattern:
+            checks: perform all the checks like - require(balances[msg.sender] >= amount)
+            Effects: update contract's own state - balances[msg.sender] -= amount
+            Interaction: perform external calls - msg.sender.call{value: amount}("")
+
+                // SECURE CODE
+            function withdraw() external {
+                uint amount = balances[msg.sender];
+                require(amount > 0, "Insufficient balance");
+
+                // EFFECTS: Update the user's balance FIRST
+                balances[msg.sender] = 0;
+
+                // INTERACTIONS: Then send Ether
+                (bool success, ) = msg.sender.call{value: amount}("");
+                require(success, "Transfer failed");
+            }
+
+        2.Reentrancy Guard Modifiers:
+            use a battle-tested mutex (lock). OpenZeppline's Reentrancyguard
+            contract provides a nonReentrant modifier. when applied to a function,
+            it prevents that function, and any other function with the same modifier,
+            from being called again while still executing. The guard typically works by 
+            checking and setting a lock variable:
+
+                // Simplified logic of a reentrancy guard
+                bool internal _locked;
+
+                modifier nonReentrant() {
+                    require(!_locked, "ReentrancyGuard: reentrant call");
+                    _locked = true;
+                    _;
+                    _locked = false;
+                }
+
+
+        3.Precautions for read-only Reentrancy:
+            since a standered nonReentrant modifier only works on non-view functions,
+            a view function can still be called during an attack. A solution is to make
+            your view functions check if the contract is in a reentrant state and revert if so.
+            This can be done by checking the reentrancy guard's status, as shown below:
+
+                import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+
+                contract MyVault is ReentrancyGuard {
+                    // ... other code ...
+                    function getCurrentPrice() public view returns (uint256) {
+                        // Revert if called during a reentrant call
+                        if(_reentrancyGuardEntered()){
+                            revert("Cannot call during reentrancy");
+                        }
+                        // ... price calculation logic ...
+                    }
+                }
+
+
+        
+
+
+
+
+
